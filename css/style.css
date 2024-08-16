@@ -1,0 +1,100 @@
+body {
+    font-family: Arial,sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-image: url('../img/wickedbackground.png');
+    font-family: "Darumadrop One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    
+}
+  
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+}
+
+.fade-in.delay-1 {
+    animation-delay: 1s;
+}
+
+.fade-in.delay-2 {
+    animation-delay: 2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#mood-selection {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mood-item {
+    text-align: center;
+}
+
+.mood-label {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 30px;
+    background-color: aliceblue;
+    border-radius: 30px;
+    color: #333;
+    margin-top: 10px;
+    animation: flort 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.mood-button {
+    width: 380px;
+    height: 380px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.mood-button:hover {
+    transform: scale(1.1);
+}
+
+#comment-display {
+    margin: 10px;
+}
+
+#comment {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+#comment-image {
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+#comment-display img {
+    margin-top: -70px;
+    width: 400px;
+    height: 400px;
+}
+

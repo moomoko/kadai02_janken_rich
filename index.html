@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <title>ももだいのムードトラッカーアプリ</title>
+</head>
+<body>
+    <div class="fade-in delay-1">
+        <h1>きょうのきぶんはどうかな</h1>
+    </div>
+    <div class="fade-in delay-2">
+        <div id="mood-selection">
+            <div class="mood-item">
+                <img src="./img/good.png" class="mood-button" data-mood="いい" alt="いい">
+                <p class="mood-label">いい</p>
+            </div>
+            <div class="mood-item">
+                <img src="./img/soso.png" class="mood-button" data-mood="まあまあ" alt="まあまあ">
+                <p class="mood-label">まあまあ</p>
+            </div>
+            <div class="mood-item">
+                <img src="./img/bad.png" class="mood-button" data-mood="わるい" alt="わるい">
+                <p class="mood-label">わるい</p>
+            </div>
+    </div>
+        
+    </div>
+
+    <div id="comment-display" style="display:none;">
+        <h2 id="mood-text"></h2>
+        <p id="comment"></p>
+        <img id="comment-image" src="" alt="コメント画像">
+    </div>
+
+<script>
+//メイン画面で気分選択
+document.querySelectorAll('.mood-button').forEach(button => {
+    button.addEventListener('click',function() {
+        const mood = this.getAttribute('data-mood');
+        document.getElementById('mood-selection').style.display = 'none';
+        displayComment(mood);
+    });
+});
+
+//コメント表示
+function displayComment(mood) {
+    const comments = {
+        "いい": ["きょうも1にちがんばったね","えがおがすてき","このちょうしだよ"],
+        "まあまあ": ["きょうはなにがおこるかな","きらくにいこう","いつもどおりでいいよ"],
+        "わるい": ["きょうはゆっくりやすもうね","だいじょうぶ、いっぽずつ","いきてるだけですごいんだよ"],
+    };
+
+    const images = {
+        "いい": "./img/good2.png",
+        "まあまあ": "./img/soso2.png",
+        "わるい": "./img/bad2.png",
+    };
+
+    const randomComment = comments[mood][Math.floor(Math.random()*comments[mood].length)];
+    document.getElementById("mood-text").textContent = mood;
+    document.getElementById("comment").textContent = randomComment;
+    document.getElementById("comment-image").src = images[mood];
+    document.getElementById("comment-display").style.display = "block";
+};
+
+
+
+</script>   
+</body>
+</html>
